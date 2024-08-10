@@ -2,8 +2,6 @@ package com.project.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.JoinColumn;
 
 @Entity
 public class Login {
@@ -11,23 +9,19 @@ public class Login {
     @Id
     private String username; // primary key
 
+    private String id; // regular field
     private String password;
-
     private String role;
-
-    @ManyToOne
-    @JoinColumn(name = "id", referencedColumnName = "id")
-    private SomeOtherEntity id; // foreign key relationship
 
     // Default constructor
     public Login() {}
 
     // Parameterized constructor
-    public Login(String username, String password, String role, SomeOtherEntity id) {
+    public Login(String username, String id, String password, String role) {
         this.username = username;
+        this.id = id;
         this.password = password;
         this.role = role;
-        this.id = id;
     }
 
     // Getters and Setters
@@ -37,6 +31,14 @@ public class Login {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getPassword() {
@@ -55,16 +57,8 @@ public class Login {
         this.role = role;
     }
 
-    public SomeOtherEntity getId() {
-        return id;
-    }
-
-    public void setId(SomeOtherEntity id) {
-        this.id = id;
-    }
-
     @Override
     public String toString() {
-        return "Login [username=" + username + ", password=" + password + ", role=" + role + ", id=" + id + "]";
+        return "Login [username=" + username + ", id=" + id + ", password=" + password + ", role=" + role + "]";
     }
 }
