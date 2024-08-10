@@ -12,19 +12,19 @@
    ***** pom stands for Project Object Model *****
   -->
   
-  <<properties>
+  <properties>
        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <jdk.version>1.8</jdk.version>
-        <spring.version>5.3.34</spring.version>
-        <junit.version>4.11</junit.version>
-        <log4j.version>1.2.17</log4j.version>
-        <sonar.host.url>http://23.20.80.194:9000/</sonar.host.url>
-        <sonar.login>admin</sonar.login>
-        <sonar.password>passw0rd</sonar.password>
-        <sonar.java.binaries>target/classes</sonar.java.binaries>		
+       <maven.compiler.target>1.8</maven.compiler.target>
+       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+       <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+       <jdk.version>1.8</jdk.version>
+       <spring.version>5.3.34</spring.version>
+       <junit.version>4.11</junit.version>
+       <log4j.version>1.2.17</log4j.version>
+       <sonar.host.url>http://23.20.80.194:9000/</sonar.host.url>
+       <sonar.login>admin</sonar.login>
+       <sonar.password>passw0rd</sonar.password>
+       <sonar.java.binaries>target/classes</sonar.java.binaries>		
   </properties> 
   
   <dependencies>
@@ -37,94 +37,92 @@
   	
   	<!-- <version>4.1.8.RELEASE</version> -->
   	
-<!--     spring core -->
-	<dependency>
-		<groupId>org.springframework</groupId>
-		<artifactId>spring-context</artifactId> 
-		<version>4.3.2.RELEASE</version>	<!-- spring-version (must be same) -->
-	</dependency>
+    <!-- spring core -->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context</artifactId> 
+        <version>4.3.2.RELEASE</version>	<!-- spring-version (must be same) -->
+    </dependency>
 	
-<!-- 	spring mvc -->
-	<dependency>
-		<groupId>org.springframework</groupId>
-		<artifactId>spring-webmvc</artifactId>	
-		<version>5.3.18</version>	<!-- spring-version (must be same) -->
-	</dependency>
+    <!-- spring mvc -->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-webmvc</artifactId>	
+        <version>5.3.18</version>	<!-- spring-version (must be same) -->
+    </dependency>
 	
-<!-- 	jstl= jsp standard tag line  -->
-	<dependency>
-		<groupId>javax.servlet</groupId>
-		<artifactId>jstl</artifactId>  
-		<version>1.2</version>
-	</dependency>
+    <!-- jstl= jsp standard tag line  -->
+    <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>jstl</artifactId>  
+        <version>1.2</version>
+    </dependency>
 	
-<!-- 	hibernate core -->
-	<dependency>
-	    <groupId>org.hibernate</groupId>
-	    <artifactId>hibernate-core</artifactId>
-	    <version>5.4.8.Final</version>
-   </dependency>
+    <!-- hibernate core -->
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-core</artifactId>
+        <version>5.4.8.Final</version>
+    </dependency>
    	
-<!--    	to use spring and hibernate together	 -->
-	<dependency>
-	    <groupId>org.springframework</groupId>
-	    <artifactId>spring-orm</artifactId>		
-		<version>4.3.2.RELEASE</version>	<!-- spring-version (must be same) -->	
-	</dependency>
+    <!-- to use spring and hibernate together -->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-orm</artifactId>		
+        <version>4.3.2.RELEASE</version>	<!-- spring-version (must be same) -->	
+    </dependency>
    
-<!--    mysql DB connector -->
-	<dependency>
-	    <groupId>mysql</groupId>
-	    <artifactId>mysql-connector-java</artifactId>
-	    <version>8.0.17</version>
-	</dependency>
+    <!-- mysql DB connector -->
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>8.0.17</version>
+    </dependency>
 	
-<!-- 	jdbc pooling -->
-	<dependency>
-	    <groupId>com.mchange</groupId>
-	    <artifactId>c3p0</artifactId>
-	    <version>0.9.5.4</version>
-	</dependency>
+    <!-- jdbc pooling -->
+    <dependency>
+        <groupId>com.mchange</groupId>
+        <artifactId>c3p0</artifactId>
+        <version>0.9.5.4</version>
+    </dependency>
 	
-<!-- 	to tell spring do commit and rollback using annotations -->
-	<dependency>
-	    <groupId>org.springframework</groupId>
-	    <artifactId>spring-tx</artifactId>
-		<version>4.3.2.RELEASE</version>	<!-- spring-version (must be same) -->
-	</dependency> 
+    <!-- to tell spring do commit and rollback using annotations -->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-tx</artifactId>
+        <version>4.3.2.RELEASE</version>	<!-- spring-version (must be same) -->
+    </dependency> 
 	
-<!-- to store and read image file -->
+    <!-- to store and read image file -->
     <!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
-	<dependency>
-	    <groupId>commons-fileupload</groupId>
-	    <artifactId>commons-fileupload</artifactId>
-	    <version>1.5</version>
-	</dependency>
+    <dependency>
+        <groupId>commons-fileupload</groupId>
+        <artifactId>commons-fileupload</artifactId>
+        <version>1.5</version>
+    </dependency>
 	
-<!-- to encrypt password using Blowfish cipher hashing -->
-	<dependency>
-	    <groupId>org.mindrot</groupId>
-	    <artifactId>jbcrypt</artifactId>
-	    <version>0.3m</version>
-	</dependency>
-	
-	
+    <!-- to encrypt password using Blowfish cipher hashing -->
+    <dependency>
+        <groupId>org.mindrot</groupId>
+        <artifactId>jbcrypt</artifactId>
+        <version>0.3m</version>
+    </dependency>
   </dependencies>
     
   <build>
     <finalName>HospitalManagement</finalName>
   </build>
 
-	   <distributionManagement>
-        <repository>
-            <id>nexus-releases</id>
-            <name>Nexus Release Repository</name>
-            <url>http://54.144.232.143:8088/repository/hims-releases-repo/</url>
-        </repository>
-        <snapshotRepository>
-            <id>nexus-snapshots</id>
-            <name>Nexus Snapshot Repository</name>
-            <url>http://54.144.232.143:8088/repository/hims-snapshots-repo/</url>
-        </snapshotRepository>
-    </distributionManagement>
+  <distributionManagement>
+    <repository>
+        <id>nexus-releases</id>
+        <name>Nexus Release Repository</name>
+        <url>http://54.144.232.143:8088/repository/hims-releases-repo/</url>
+    </repository>
+    <snapshotRepository>
+        <id>nexus-snapshots</id>
+        <name>Nexus Snapshot Repository</name>
+        <url>http://54.144.232.143:8088/repository/hims-snapshots-repo/</url>
+    </snapshotRepository>
+  </distributionManagement>
 </project>
