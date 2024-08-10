@@ -31,24 +31,22 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
-  	
-  	<!-- <version>4.1.8.RELEASE</version> -->
   	
     <!-- spring core -->
     <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-context</artifactId> 
-        <version>4.3.2.RELEASE</version>	<!-- spring-version (must be same) -->
+        <version>${spring.version}</version>	
     </dependency>
 	
     <!-- spring mvc -->
     <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-webmvc</artifactId>	
-        <version>5.3.18</version>	<!-- spring-version (must be same) -->
+        <version>${spring.version}</version>	
     </dependency>
 	
     <!-- jstl= jsp standard tag line  -->
@@ -56,6 +54,14 @@
         <groupId>javax.servlet</groupId>
         <artifactId>jstl</artifactId>  
         <version>1.2</version>
+    </dependency>
+
+    <!-- javax.servlet API -->
+    <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>javax.servlet-api</artifactId>
+        <version>4.0.1</version> <!-- Ensure this matches the version your server uses -->
+        <scope>provided</scope>
     </dependency>
 	
     <!-- hibernate core -->
@@ -69,7 +75,7 @@
     <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-orm</artifactId>		
-        <version>4.3.2.RELEASE</version>	<!-- spring-version (must be same) -->	
+        <version>${spring.version}</version>	
     </dependency>
    
     <!-- mysql DB connector -->
@@ -90,11 +96,10 @@
     <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-tx</artifactId>
-        <version>4.3.2.RELEASE</version>	<!-- spring-version (must be same) -->
+        <version>${spring.version}</version>
     </dependency> 
 	
     <!-- to store and read image file -->
-    <!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
     <dependency>
         <groupId>commons-fileupload</groupId>
         <artifactId>commons-fileupload</artifactId>
