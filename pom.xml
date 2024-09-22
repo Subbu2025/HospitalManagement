@@ -11,29 +11,6 @@
   <name>HospitalManagement Maven Webapp</name>
   <url>http://maven.apache.org</url>
 
-  <!-- Dependency Management Section -->
-  <dependencyManagement>
-    <dependencies>
-      <!-- Spring Framework BOM for managing Spring dependencies -->
-      <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-framework-bom</artifactId>
-        <version>5.3.18</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-
-      <!-- Hibernate BOM for managing Hibernate dependencies -->
-      <dependency>
-        <groupId>org.hibernate.orm</groupId>
-        <artifactId>hibernate-bom</artifactId>
-        <version>5.4.35.Final</version> <!-- Updated version -->
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
-
   <dependencies>
     <!-- JUnit for Testing -->
     <dependency>
@@ -68,7 +45,14 @@
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-core</artifactId>
-      <version>5.4.35.Final</version> <!-- Updated version -->
+      <version>5.4.32.Final</version> <!-- Use a stable version available in Maven Central -->
+    </dependency>
+
+    <!-- Hibernate Validator -->
+    <dependency>
+      <groupId>org.hibernate.validator</groupId>
+      <artifactId>hibernate-validator</artifactId>
+      <version>6.2.0.Final</version> <!-- Use a stable version available in Maven Central -->
     </dependency>
 
     <!-- Spring ORM for Hibernate Integration -->
