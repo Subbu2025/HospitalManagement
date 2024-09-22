@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.JoinColumn;
+import com.project.entity.SomeOtherEntity;
+
 
 @Entity
 public class Login {
