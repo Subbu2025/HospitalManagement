@@ -26,6 +26,12 @@
       <scope>test</scope>
     </dependency>
     <dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>javax.servlet-api</artifactId>
+    <version>4.0.1</version> <!-- Adjust the version as needed -->
+    <scope>provided</scope>
+    </dependency>
+    <dependency>
     <groupId>com.project</groupId>
     <artifactId>some-other-entity</artifactId>
     <version>1.0.0</version>
