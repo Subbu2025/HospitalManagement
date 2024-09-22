@@ -11,20 +11,44 @@
   <name>HospitalManagement Maven Webapp</name>
   <url>http://maven.apache.org</url>
 
+  <!-- Dependency Management Section -->
+  <dependencyManagement>
+    <dependencies>
+      <!-- Spring Framework BOM for managing Spring dependencies -->
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-framework-bom</artifactId>
+        <version>5.3.18</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <!-- Hibernate BOM for managing Hibernate dependencies -->
+      <dependency>
+        <groupId>org.hibernate.orm</groupId>
+        <artifactId>hibernate-bom</artifactId>
+        <version>5.4.8.Final</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+    </dependencies>
+  </dependencyManagement>
+
   <dependencies>
     <!-- JUnit for Testing -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.13.2</version> <!-- Updated JUnit version -->
+      <version>4.13.2</version>
       <scope>test</scope>
     </dependency>
-    
+
     <!-- Spring Core -->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
-      <version>5.3.18</version> <!-- Ensure consistent Spring version -->
+      <version>5.3.18</version>
     </dependency>
 
     <!-- Spring MVC -->
@@ -52,7 +76,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-orm</artifactId>
-      <version>5.3.18</version> <!-- Ensure consistent Spring version -->
+      <version>5.3.18</version>
     </dependency>
 
     <!-- MySQL Database Connector -->
@@ -73,7 +97,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-tx</artifactId>
-      <version>5.3.18</version> <!-- Ensure consistent Spring version -->
+      <version>5.3.18</version>
     </dependency>
 
     <!-- Commons File Upload for File Handling -->
@@ -94,18 +118,81 @@
 
   <build>
     <finalName>HospitalManagement</finalName>
-    
-    <!-- Maven WAR Plugin Configuration -->
+
     <plugins>
+      <!-- Maven WAR Plugin Configuration -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
         <version>3.3.1</version>
         <configuration>
-          <failOnMissingWebXml>false</failOnMissingWebXml> <!-- Required for Servlet 3.0+ apps -->
+          <failOnMissingWebXml>false</failOnMissingWebXml>
         </configuration>
+      </plugin>
+
+      <!-- SonarQube Plugin for Code Quality Analysis -->
+      <plugin>
+        <groupId>org.sonarsource.scanner.maven</groupId>
+        <artifactId>sonar-maven-plugin</artifactId>
+        <version>3.9.1.2184</version>
+      </plugin>
+
+      <!-- Nexus Staging Plugin for Artifact Upload -->
+      <plugin>
+        <groupId>org.sonatype.plugins</groupId>
+        <artifactId>nexus-staging-maven-plugin</artifactId>
+        <version>1.6.8</version>
+        <extensions>true</extensions>
+        <configuration>
+          <serverId>nexus</serverId>
+          <nexusUrl>http://your-nexus-server-url/repository/maven-releases/</nexusUrl>
+          <autoReleaseAfterClose>true</autoReleaseAfterClose>
+        </configuration>
+      </plugin>
+
+      <!-- Trivy Plugin for Vulnerability Scanning -->
+      <plugin>
+        <groupId>com.aquasecurity</groupId>
+        <artifactId>trivy-maven-plugin</artifactId>
+        <version>0.20.0</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>scan</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
+
+  <!-- Repositories and PluginRepositories for Nexus -->
+  <repositories>
+    <repository>
+      <id>nexus-releases</id>
+      <url>http://your-nexus-server-url/repository/maven-releases/</url>
+    </repository>
+    <repository>
+      <id>nexus-snapshots</id>
+      <url>http://your-nexus-server-url/repository/maven-snapshots/</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>nexus-releases</id>
+      <url>http://your-nexus-server-url/repository/maven-releases/</url>
+    </pluginRepository>
+    <pluginRepository>
+      <id>nexus-snapshots</id>
+      <url>http://your-nexus-server-url/repository/maven-snapshots/</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </pluginRepository>
+  </pluginRepositories>
 
 </project>
